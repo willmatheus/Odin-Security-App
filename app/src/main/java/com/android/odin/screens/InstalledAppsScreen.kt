@@ -1,20 +1,9 @@
 package com.android.odin.screens
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.AbsoluteAlignment
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -31,38 +20,49 @@ fun InstalledAppsScreen(
         uiState.onLaunch()
     }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
-    ) {
-        Column(
+    Scaffold { paddingValues ->
+        Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .padding(paddingValues),
+            color = MaterialTheme.colorScheme.background
         ) {
-            Text(
-                text = "Apps List",
-                style = MaterialTheme.typography.titleLarge,
+            Column(
                 modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(bottom = 8.dp, top = 64.dp)
-            )
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp)
+            ) {
+                Spacer(modifier = Modifier.height(32.dp))
 
-            if (uiState.isLoading) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(100.dp)
+                Text(
+                    text = "Aplicativos analisados",
+                    style = MaterialTheme.typography.headlineSmall
+                )
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Text(
+                    text = "Apps instalados fora da Play Store aparecem primeiro por apresentarem maior incerteza de origem.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                if (uiState.isLoading) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                } else {
+                    InstalledAppsLazyList(
+                        uiState = uiState,
+                        paddingValues = PaddingValues(bottom = 16.dp),
+                        activityOps = activityOps
                     )
                 }
-            } else {
-                InstalledAppsLazyList(
-                    uiState,
-                    paddingValues = PaddingValues(0.dp), // Ou ajuste conforme necessário
-                    activityOps = activityOps
-                )
             }
         }
     }

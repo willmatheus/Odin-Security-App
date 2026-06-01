@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Odin</string>
+    <string name="check_app">Verificar o app</string>
+    <string name="risk_level">Risk Level</string>
+    <string name="permission_granted">Concedida</string>
+    <string name="permission_declared_not_granted">Declarada, mas não concedida</string>
 </resources>

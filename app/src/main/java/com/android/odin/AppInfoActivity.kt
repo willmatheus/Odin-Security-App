@@ -8,8 +8,10 @@ import androidx.activity.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.odin.core.ActivityOps
 import com.android.odin.extensions.getActivityOps
+import com.android.odin.screens.AppRiskDetailsScreen
 import com.android.odin.screens.InstalledAppsScreen
 import com.android.odin.ui.theme.OdinTheme
+import com.android.odin.viewmodel.InstalledAppsViewModel.Companion.APP_PACKAGE_NAME_EXTRA
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,9 +23,14 @@ class AppInfoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val packageName = intent.getStringExtra(APP_PACKAGE_NAME_EXTRA)
         setContent {
             OdinTheme {
-                InstalledAppsScreen(appsPermissionsViewModel.uiState.collectAsStateWithLifecycle().value, activityOps)
+                AppRiskDetailsScreen(
+                    packageName,
+                    uiState = appsPermissionsViewModel.uiState.collectAsStateWithLifecycle().value,
+                    activityOps = activityOps
+                )
             }
         }
     }
