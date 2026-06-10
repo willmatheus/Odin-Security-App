@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.android.odin.PermissionRiskClassifier.AggravatingRule
 import com.android.odin.PermissionRiskClassifier.PermissionContribution
 import com.android.odin.PermissionRiskClassifier.RiskLevel
 import com.android.odin.R
@@ -77,6 +78,12 @@ fun AppRiskDetailsScreen(
         ) {
             item {
                 RiskSummaryCard(appRiskResult)
+            }
+
+            if (appRiskResult.aggravatingRules.isNotEmpty()) {
+                item {
+                    AggravatingRulesCard(appRiskResult.aggravatingRules)
+                }
             }
 
             item {
@@ -152,14 +159,71 @@ private fun RiskSummaryCard(
             )
 
             RiskInfoRow(
+                label = "Fator de origem",
+                value = "x%.1f".format(result.originFactor)
+            )
+
+            RiskInfoRow(
                 label = "Índice final ajustado",
                 value = "%.1f".format(result.finalRiskScore)
+            )
+
+            RiskInfoRow(
+                label = "Classificação preliminar",
+                value = result.preliminaryRiskLevel.label()
             )
 
             RiskInfoRow(
                 label = "Origem de instalação",
                 value = result.installOrigin.name
             )
+        }
+    }
+}
+
+@Composable
+private fun AggravatingRulesCard(
+    rules: List<AggravatingRule>
+) {
+    ElevatedCard(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text(
+                text = "Regras de agravamento acionadas",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+
+            rules.forEachIndexed { index, rule ->
+                if (index > 0) {
+                    HorizontalDivider()
+                }
+
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Text(
+                        text = rule.title,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold
+                    )
+
+                    Text(
+                        text = rule.description,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
+                    RiskInfoRow(
+                        label = "Classificação mínima",
+                        value = rule.minimumRiskLevel.label()
+                    )
+                }
+            }
         }
     }
 }

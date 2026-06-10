@@ -34,12 +34,16 @@ class InstalledAppsRepository @Inject constructor(
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.getInstalledPackages(
                 PackageManager.PackageInfoFlags.of(
-                    PackageManager.GET_PERMISSIONS.toLong()
+                    PackageManager.GET_PERMISSIONS.toLong() or
+                            PackageManager.GET_SERVICES.toLong()
                 )
             )
         } else {
             @Suppress("DEPRECATION")
-            packageManager.getInstalledPackages(PackageManager.GET_PERMISSIONS)
+            packageManager.getInstalledPackages(
+                PackageManager.GET_PERMISSIONS or
+                        PackageManager.GET_SERVICES
+            )
         }
     }
 

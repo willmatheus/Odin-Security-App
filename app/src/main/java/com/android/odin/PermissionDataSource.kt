@@ -108,154 +108,154 @@ val permissionRiskMap = mapOf(
     "android.permission.INSTALL_GRANT_RUNTIME_PERMISSIONS" to PermissionRisk(
         "android.permission.INSTALL_GRANT_RUNTIME_PERMISSIONS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite instalar e conceder permissões em tempo de execução"
     ),
 
     android.Manifest.permission.READ_SMS to PermissionRisk(
         android.Manifest.permission.READ_SMS,
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite ler mensagens SMS"
     ),
 
     android.Manifest.permission.SEND_SMS to PermissionRisk(
         android.Manifest.permission.SEND_SMS,
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite enviar mensagens SMS"
     ),
 
     "android.permission.WRITE_SMS" to PermissionRisk(
         "android.permission.WRITE_SMS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite modificar mensagens SMS"
     ),
 
     "android.permission.RECEIVE_MMS" to PermissionRisk(
         "android.permission.RECEIVE_MMS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite receber mensagens MMS"
     ),
 
     "android.permission.SEND_SMS_NO_CONFIRMATION" to PermissionRisk(
         "android.permission.SEND_SMS_NO_CONFIRMATION",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite enviar SMS sem confirmação do usuário"
     ),
 
     "android.permission.RECEIVE_SMS" to PermissionRisk(
         "android.permission.RECEIVE_SMS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite receber mensagens SMS"
     ),
 
     "android.permission.READ_LOGS" to PermissionRisk(
         "android.permission.READ_LOGS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite ler logs internos do sistema"
     ),
 
     "android.permission.READ_PRIVILEGED_PHONE_STATE" to PermissionRisk(
         "android.permission.READ_PRIVILEGED_PHONE_STATE",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar informações privilegiadas do estado do telefone"
     ),
 
     "android.permission.LOCATION_HARDWARE" to PermissionRisk(
         "android.permission.LOCATION_HARDWARE",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar recursos de hardware de localização"
     ),
 
     android.Manifest.permission.ACCESS_FINE_LOCATION to PermissionRisk(
         android.Manifest.permission.ACCESS_FINE_LOCATION,
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar localização precisa"
     ),
 
     "android.permission.ACCESS_BACKGROUND_LOCATION" to PermissionRisk(
         "android.permission.ACCESS_BACKGROUND_LOCATION",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar localização em segundo plano"
     ),
 
     "android.permission.BIND_ACCESSIBILITY_SERVICE" to PermissionRisk(
         "android.permission.BIND_ACCESSIBILITY_SERVICE",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite vincular serviço de acessibilidade"
     ),
 
     android.Manifest.permission.ACCESS_WIFI_STATE to PermissionRisk(
         android.Manifest.permission.ACCESS_WIFI_STATE,
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar informações sobre redes Wi-Fi"
     ),
 
     "com.android.voicemail.permission.READ_VOICEMAIL" to PermissionRisk(
         "com.android.voicemail.permission.READ_VOICEMAIL",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite ler mensagens de correio de voz"
     ),
 
     android.Manifest.permission.RECORD_AUDIO to PermissionRisk(
         android.Manifest.permission.RECORD_AUDIO,
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite gravar áudio"
     ),
 
     "android.permission.CAPTURE_AUDIO_OUTPUT" to PermissionRisk(
         "android.permission.CAPTURE_AUDIO_OUTPUT",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite capturar saída de áudio do dispositivo"
     ),
 
     "android.permission.ACCESS_NOTIFICATIONS" to PermissionRisk(
         "android.permission.ACCESS_NOTIFICATIONS",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar notificações"
     ),
 
     "android.permission.INTERACT_ACROSS_USERS_FULL" to PermissionRisk(
         "android.permission.INTERACT_ACROSS_USERS_FULL",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite interação completa entre usuários do dispositivo"
     ),
 
     "android.permission.BLUETOOTH_PRIVILEGED" to PermissionRisk(
         "android.permission.BLUETOOTH_PRIVILEGED",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acesso privilegiado a recursos Bluetooth"
     ),
 
     "android.permission.GET_PASSWORD" to PermissionRisk(
         "android.permission.GET_PASSWORD",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite acessar senhas armazenadas"
     ),
 
     "android.permission.INTERNAL_SYSTEM_WINDOW" to PermissionRisk(
         "android.permission.INTERNAL_SYSTEM_WINDOW",
         Severity.HIGH,
-        7.5,
+        8.0,
         "Permite criar janelas internas do sistema"
     ),
 
@@ -390,63 +390,63 @@ val permissionRiskMap = mapOf(
     android.Manifest.permission.INTERNET to PermissionRisk(
         android.Manifest.permission.INTERNET,
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite acesso à internet"
     ),
 
     "android.permission.POST_NOTIFICATIONS" to PermissionRisk(
         "android.permission.POST_NOTIFICATIONS",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite publicar notificações"
     ),
 
     "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" to PermissionRisk(
         "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite realizar downloads sem notificação visível"
     ),
 
     "android.permission.PACKAGE_USAGE_STATS" to PermissionRisk(
         "android.permission.PACKAGE_USAGE_STATS",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite acessar estatísticas de uso dos aplicativos"
     ),
 
     "android.permission.MASTER_CLEAR" to PermissionRisk(
         "android.permission.MASTER_CLEAR",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite executar restauração completa do dispositivo"
     ),
 
     "android.permission.DELETE_PACKAGES" to PermissionRisk(
         "android.permission.DELETE_PACKAGES",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite remover pacotes instalados"
     ),
 
     "android.permission.GET_PACKAGE_SIZE" to PermissionRisk(
         "android.permission.GET_PACKAGE_SIZE",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite consultar o tamanho de pacotes instalados"
     ),
 
     android.Manifest.permission.BLUETOOTH to PermissionRisk(
         android.Manifest.permission.BLUETOOTH,
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite comunicação via Bluetooth"
     ),
 
     "android.permission.DEVICE_POWER" to PermissionRisk(
         "android.permission.DEVICE_POWER",
         Severity.LOW,
-        2.5,
+        2.0,
         "Permite acesso a recursos de energia do dispositivo"
     ),
 

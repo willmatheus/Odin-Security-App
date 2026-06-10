@@ -23,7 +23,7 @@ class AppInfoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val packageName = intent.getStringExtra(APP_PACKAGE_NAME_EXTRA)
+        val packageName = intent.getStringExtra(APP_PACKAGE_NAME_EXTRA) ?: return
         setContent {
             OdinTheme {
                 AppRiskDetailsScreen(
