@@ -63,8 +63,7 @@ class AppInstallReceiver : BroadcastReceiver() {
                 context = context,
                 packageName = packageName,
                 appName = result.appName,
-                riskLevel = result.riskLevel,
-                finalRiskScore = result.finalRiskScore
+                riskLevel = result.riskLevel
             )
         } catch (exception: Exception) {
             Log.e(TAG, "Erro ao processar pacote $packageName. O APK pode não estar pronto.", exception)
@@ -76,8 +75,7 @@ class AppInstallReceiver : BroadcastReceiver() {
         context: Context,
         packageName: String,
         appName: String,
-        riskLevel: RiskLevel,
-        finalRiskScore: Double
+        riskLevel: RiskLevel
     ) {
         createNotificationChannel(context)
 
@@ -102,11 +100,11 @@ class AppInstallReceiver : BroadcastReceiver() {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Risco detectado: $appName")
-            .setContentText("O app possui risco ${riskLevel.label()} (Índice: %.1f)".format(finalRiskScore))
+            .setContentText("O app possui risco ${riskLevel.label()}.")
             .setStyle(
                 NotificationCompat.BigTextStyle().bigText(
                     "O Odin analisou o aplicativo $appName. " +
-                            "Nível de risco: ${riskLevel.label()}. Índice: %.1f. " +
+                            "Nível de risco: ${riskLevel.label()}. " +
                             "Toque para revisar as permissões e detalhes de segurança."
                 )
             )

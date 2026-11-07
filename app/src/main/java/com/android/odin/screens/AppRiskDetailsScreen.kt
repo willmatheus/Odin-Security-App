@@ -151,28 +151,6 @@ private fun RiskSummaryCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            HorizontalDivider()
-
-            RiskInfoRow(
-                label = "Índice baseado em permissões",
-                value = "%.1f".format(result.baseRiskScore)
-            )
-
-            RiskInfoRow(
-                label = "Fator de origem",
-                value = "x%.1f".format(result.originFactor)
-            )
-
-            RiskInfoRow(
-                label = "Índice final ajustado",
-                value = "%.1f".format(result.finalRiskScore)
-            )
-
-            RiskInfoRow(
-                label = "Classificação preliminar",
-                value = result.preliminaryRiskLevel.label()
-            )
-
             RiskInfoRow(
                 label = "Origem de instalação",
                 value = result.installOrigin.name
@@ -268,13 +246,6 @@ private fun PermissionRiskCard(
                 style = MaterialTheme.typography.bodyMedium
             )
 
-            HorizontalDivider()
-
-            RiskInfoRow(
-                label = "Peso da permissão",
-                value = "%.1f".format(permission.weight)
-            )
-
             RiskInfoRow(
                 label = "Estado",
                 value = if (permission.stateFactor == 1.0) {
@@ -282,11 +253,6 @@ private fun PermissionRiskCard(
                 } else {
                     stringResource(R.string.permission_declared_not_granted)
                 }
-            )
-
-            RiskInfoRow(
-                label = "Contribuição no índice",
-                value = "%.1f".format(permission.contribution)
             )
         }
     }

@@ -251,8 +251,8 @@ object PermissionRiskClassifier {
             finalRiskScore >= 45.0
         ) {
             rules += AggravatingRule(
-                title = "Fonte externa com indice elevado",
-                description = "Apps externos com indice final igual ou superior a 45 recebem classificacao final critica.",
+                title = "Fonte externa com risco elevado",
+                description = "Apps externos com varias permissões sensiveis recebem classificacao final critica.",
                 minimumRiskLevel = RiskLevel.CRITICAL
             )
         }
@@ -262,8 +262,8 @@ object PermissionRiskClassifier {
             finalRiskScore >= 50.0
         ) {
             rules += AggravatingRule(
-                title = "Origem desconhecida com indice elevado",
-                description = "Apps de origem desconhecida com indice final igual ou superior a 50 recebem classificacao final critica.",
+                title = "Origem desconhecida com risco elevado",
+                description = "Apps de origem desconhecida com varias permissões sensiveis recebem classificacao final critica.",
                 minimumRiskLevel = RiskLevel.CRITICAL
             )
         }

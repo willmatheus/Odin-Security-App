@@ -84,12 +84,6 @@ fun AppInfoCard(
                 )
             }
 
-            Text(
-                text = "Índice final: %.1f".format(app.finalRiskScore),
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Medium
-            )
-
             TextButton(
                 modifier = Modifier.align(Alignment.End),
                 onClick = {
